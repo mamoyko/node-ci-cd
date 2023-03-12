@@ -4,7 +4,7 @@ jobs:
   build-container:
     name: Build and run node ci/cd
     runs-on: ubuntu-latest
-    container: node:17.6.0
+    #container: node:17.6.0
     steps:
       -
         name: Node version
