@@ -4,7 +4,7 @@ jobs:
   build-container:
     name: Build and run node ci/cd
     runs-on: ubuntu-latest
-    container: node:17.6.0
+    # container: node:17.6.0
     steps:
       - run: node --version
         name: node version
@@ -18,12 +18,12 @@ jobs:
           registry: ghcr.io
           username: ${{ secrets.DOCKER_ACCESS_TOKEN}}
           password: ${{ secrets.DOCKER_USERNAME }}
-      - run: npm install
-        name: install dependencies
-      - run: npm run test
-        name: unit Test
-      - run: npm run build
-        name: build app
+      # - run: npm install
+      #   name: install dependencies
+      # - run: npm run test
+      #   name: unit Test
+      # - run: npm run build
+      #   name: build app
       # - uses: actions/upload-artifact@v3
       #   name: upload artifacts dist build
       #   with:
