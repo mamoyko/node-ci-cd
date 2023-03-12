@@ -33,7 +33,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCER_USERNAME }}/node-ci-cd:latest, ${{ secrets.DOCER_USERNAME }}/node-ci-cd:${{ github.run_number }}
+          tags: joelralph/node-ci-cd:latest, joelralph/node-ci-cd:${{ github.run_number }}
 
       # - run: npm install
       #   name: install dependencies
