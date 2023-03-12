@@ -4,7 +4,6 @@ jobs:
   build-container:
     name: Build and run node ci/cd
     runs-on: ubuntu-latest
-    #container: node:17.6.0
     steps:
       -
         name: Node version
@@ -27,6 +26,14 @@ jobs:
       - 
         name: Unit test
         run: npm run test
+      -
+        name: Docker build and push
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: ${{ secrets.DOCER_USERNAME }}//node-ci-cd:latest, ${{ secrets.DOCER_USERNAME }}/node-ci-cd:${{ github.run_number }}
 
       # - run: npm install
       #   name: install dependencies
